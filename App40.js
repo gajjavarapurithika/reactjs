@@ -1,46 +1,15 @@
-import React, { useState } from 'react';
-
-import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from './redux/actions';
-
-const App = ({ todos, addTodo, toggleTodo }) => {
-  const [newTodo, setNewTodo] = useState('');
-
-  const handleAddTodo = () => {
-    if (newTodo.trim() !== '') {
-      addTodo(newTodo);  // Pass the new todo text, not an instance of Todo
-      setNewTodo('');  // Clear input after adding
-    }
-  };
-
-  return (
-    <div>
-      <h1>Redux Todo App</h1>
+import React from 'react';
+import ReactDOM from 'react-dom';
+class App extends React.Component
+{
+  render()
+  {
+    return(
       <div>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-        />
-        <button onClick={handleAddTodo}>Add Todo</button>
+        <h1 style={{color:"red"}}>Hello</h1>
+        <p style={{backgroundColor:"lightblue"}}>Welcome</p>
       </div>
-      <ul>
-        {todos.map((todo) => (
-          <li
-            key={todo.id}
-            onClick={() => toggleTodo(todo.id)}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          >
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const mapStateToProps = (state) => ({
-  todos: state.todos,
-});
-
-export default connect(mapStateToProps, { addTodo, toggleTodo })(App);
+    );
+  }
+}
+export default App;

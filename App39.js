@@ -1,20 +1,15 @@
 import React from 'react';
-import {Routes,Route} from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Navbar from './components/Navbar';
-function App()
+import ReactDOM from 'react-dom';
+class App extends React.Component
 {
-  return(
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </div>
-  );
+  render()
+  {
+    return(
+      <div>
+        <h1 style={{color:"Green"}}>Hello Java</h1>
+        <p>Welcome</p>
+      </div>
+    );
+  }
 }
 export default App;
